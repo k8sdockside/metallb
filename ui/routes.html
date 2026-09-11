@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>MetalLB announcements</title>
+        <link rel="stylesheet" href="metallb.css" />
+        <!-- The bridge to the app. Served by k8sdockside itself, always at this path. -->
+        <script src="/plugin-ui/_sdk/k8sdockside.js"></script>
+    </head>
+    <body class="page page-routes">
+        <header class="top">
+            <div class="brand">
+                <span class="logo" id="logo"></span>
+                <div>
+                    <h1>Announcements</h1>
+                    <p id="where" class="faint">Connecting…</p>
+                </div>
+            </div>
+            <div class="flow-key" id="key"></div>
+            <nav class="top-actions" id="top-actions"></nav>
+        </header>
+
+        <p id="error" class="banner error" hidden></p>
+        <section id="empty" class="empty" hidden></section>
+
+        <div id="body" hidden>
+            <p class="lede">
+                How an address gets from a pool to the network: each pool is announced by the advertisements that select it, from the
+                nodes those advertisements select, and — for BGP — to the routers they peer with. Hover anything to follow its path.
+            </p>
+            <section class="flow-wrap">
+                <div id="flow" class="flow"></div>
+            </section>
+            <section id="findings" class="findings"></section>
+            <section id="answers" class="answers"></section>
+        </div>
+
+        <!-- Classic scripts, not type="module": a sandboxed frame has an opaque
+             origin, so a module would be a cross-origin load. -->
+        <script src="model.js"></script>
+        <script src="kit.js"></script>
+        <script src="routes.js"></script>
+    </body>
+</html>
