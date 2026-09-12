@@ -749,6 +749,31 @@
     });
     if (typeof ResizeObserver === 'function') new ResizeObserver(measure).observe(document.body);
 
+    // The inspector is as wide as it was left: the width is kept in the
+    // frame's hash, which outlives the page when its tab is switched away.
+    var keptWidth = /(?:^#|&)inspector=(\d+)/.exec(location.hash || '');
+    $('inspector').parentNode.insertBefore(
+        K.grip({
+            panel: $('inspector'),
+            prop: '--inspector-w',
+            min: 280,
+            room: 420,
+            initial: keptWidth ? Number(keptWidth[1]) : 0,
+            label: 'Resize the inspector',
+            onResize: function (px, done) {
+                // The seat maps are fitted to the room the pools have left.
+                measure();
+                if (!done) return;
+                try {
+                    history.replaceState(null, '', '#' + (px ? 'inspector=' + px : ''));
+                } catch (e) {
+                    // A sandboxed frame may refuse; the inspector still resizes.
+                }
+            },
+        }),
+        $('inspector'),
+    );
+
     var routes = K.button('Announcements', 'ghost', 'share', function () {
         sdk.openView('routes').catch(fail);
     });
