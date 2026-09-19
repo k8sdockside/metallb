@@ -1,5 +1,5 @@
 {
-    "$schema": "https://raw.githubusercontent.com/rogerwesterbo/k8sdockside/main/docs/plugin.schema.json",
+    "$schema": "https://raw.githubusercontent.com/k8sdockside/k8sdockside/main/docs/plugin.schema.json",
     "id": "metallb",
     "name": "MetalLB",
     "version": "1.0.0",
@@ -8,12 +8,12 @@
     "icon": "gateway",
     "logo": "logo.svg",
     "docs": "https://metallb.io/",
-    "author": "Roger Westerbo",
+    "author": "K8s Dockside",
     "links": [
         { "label": "metallb.io", "url": "https://metallb.io" },
         { "label": "Configuration", "url": "https://metallb.io/configuration/" },
         { "label": "GitHub", "url": "https://github.com/metallb/metallb" },
-        { "label": "Plugin source", "url": "https://github.com/rogerwesterbo/k8sdockside-metallb" }
+        { "label": "Plugin source", "url": "https://github.com/k8sdockside/metallb" }
     ],
     "description": "MetalLB gives LoadBalancer services an address from a pool you own, and tells the network where that address lives — by answering ARP/NDP from one node (Layer 2), or by announcing it to your routers (BGP).\n\nStart with Address space: every pool as a map of its addresses, coloured by the namespace holding each one. Click any address to follow its route out of the cluster, or a free one to give it to a service. Services still waiting for an address are listed at the top with the reason and a fix. Announcements draws the path from pool to advertisement to node to router, and says what is wrong with it.\n\nEvery Service and every IPAddressPool also gets a MetalLB panel in its detail view. Changes are always shown to you before they are made.",
     "requires": [

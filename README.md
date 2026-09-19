@@ -1,6 +1,6 @@
 # MetalLB for K8s Dockside
 
-A plugin for the [K8s Dockside](https://github.com/rogerwesterbo/k8sdockside)
+A plugin for the [K8s Dockside](https://github.com/k8sdockside/k8sdockside)
 desktop app that shows [MetalLB](https://metallb.io/) as what it manages:
 addresses.
 
@@ -59,7 +59,7 @@ with an **Install** button, and the sidebar suggests it for any cluster that
 runs MetalLB. You can also use **From a repository** with this address:
 
 ```
-https://github.com/rogerwesterbo/k8sdockside-metallb.git
+https://github.com/k8sdockside/metallb.git
 ```
 
 The app clones it into its plugins folder, and the plugin's card gets an
@@ -97,7 +97,7 @@ The app checks the plugin when it loads it. To run the same checks without the
 app, for example in CI:
 
 ```
-go run github.com/rogerwesterbo/k8sdockside/cmd/plugincheck@main .
+go run github.com/k8sdockside/k8sdockside/cmd/plugincheck@main .
 ```
 
 `.github/workflows/check.yml` does this on every push.
@@ -117,5 +117,5 @@ ui/
 └── pool.html      the IPAddressPool panel → pool.js
 ```
 
-See the app's [plugin documentation](https://github.com/rogerwesterbo/k8sdockside/blob/main/docs/plugins.md)
+See the app's [plugin documentation](https://github.com/k8sdockside/k8sdockside/blob/main/docs/plugins.md)
 for the format.
