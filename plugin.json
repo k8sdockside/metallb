@@ -3,9 +3,10 @@
     "id": "metallb",
     "name": "MetalLB",
     "version": "1.0.0",
-    "minAppVersion": "0.0.15",
+    "minAppVersion": "0.0.30",
     "tagline": "load balancer addresses for bare-metal clusters",
     "icon": "gateway",
+    "logo": "logo.svg",
     "docs": "https://metallb.io/",
     "author": "Roger Westerbo",
     "links": [
