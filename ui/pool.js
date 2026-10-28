@@ -77,7 +77,6 @@
             return a.ip.n < b.ip.n ? -1 : a.ip.n > b.ip.n ? 1 : 0;
         });
         if (holders.length) {
-            root.appendChild(el('h3', 'mini-title', 'Handed out'));
             var list = el('ul', 'directory compact');
             holders.forEach(function (at) {
                 at.services.forEach(function (s) {
@@ -92,7 +91,10 @@
                     list.appendChild(item);
                 });
             });
-            root.appendChild(list);
+            // A folding section of the app's own kind; its id keeps the fold across redraws.
+            var handed = sdk.ui.section({ id: 'handed-out', title: 'Handed out', count: list.children.length, what: 'the addresses handed out' });
+            handed.body.appendChild(list);
+            root.appendChild(handed.root);
         }
 
         if (state.ctx.write) {
